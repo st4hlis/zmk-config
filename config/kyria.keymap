@@ -102,7 +102,7 @@
 			bindings = <
 	&none &kp AT       &kp DLLR &kp EQUAL &kp UNDER  &none                                 &none  &kp LBRC &kp DQT   &kp TILDE &kp RBRC &none
 	&none &kp QMARK    &kp EXCL &kp COMMA &kp DOT    &none                                 &none  &kp LPAR &kp SQT   &kp BSLH  &kp RPAR &none
-	&none &kp SE_AMPR  &kp PIPE &kp SEMI  &kp COLON  &none  &trans &trans    &trans &trans &none  &kp LBKT &kp GRAVE &kp none  &none    &none
+	&none &kp SE_AMPR  &kp PIPE &kp SEMI  &kp COLON  &none  &trans &trans    &trans &trans &none  &kp LBKT &kp GRAVE &kp none  &kp RBKT &none
                               &trans    &trans     &trans &trans &trans    &trans &trans &trans &trans   &trans
 			>;
 
