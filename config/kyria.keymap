@@ -12,7 +12,7 @@
 #define MATH  1
 #define SYM   2
 #define NAV   3
-#define GAME  4
+// #define GAME  4
 
 / {
 		behaviors {
@@ -75,10 +75,10 @@
 //                    ---------------------------------  ---------------------------------
 
 			bindings = <
-	&none &kp CARET       &kp LT        &kp EQUAL     &kp GT           &none                           &none &kp 7 &kp 8 &kp 9 &none &none
-	&none &kp STAR        &kp FSLH      &kp COMMA     &kp DOT          &none                           &none &kp 4 &kp 5 &kp 6 &kp 0 &none
-	&none &mt LCTRL PRCNT &mt LALT HASH &mt LGUI PLUS &mt LSHIFT MINUS &none &none &none   &none &none &none &kp 1 &kp 2 &kp 3 &none &none
-                                      &none         &none            &none &none &none   &none &none &none &none &none 
+	&none &kp CARET       &kp LT        &kp EQUAL     &kp GT           &none                                &none  &kp 7  &kp 8  &kp 9 &none &none
+	&none &kp STAR        &kp FSLH      &kp COMMA     &kp DOT          &none                                &none  &kp 4  &kp 5  &kp 6 &kp 0 &none
+	&none &mt LCTRL PRCNT &mt LALT HASH &mt LGUI PLUS &mt LSHIFT MINUS &none & trans &trans   &trans &trans &none  &kp 1  &kp 2  &kp 3 &none &none
+                                      &trans        &trans           &trans &trans &trans   &trans &trans &trans &trans &trans 
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
@@ -100,10 +100,10 @@
 //                   -------------------------------  -------------------------------
 
 			bindings = <
-	&none &kp AT    &kp DLLR &kp EQUAL &kp UNDER  &none                           &none &kp LBRC &kp DQT   &kp TILDE &kp RBRC &none
-	&none &kp QMARK &kp EXCL &kp COMMA &kp DOT    &none                           &none &kp LPAR &kp SQT   &kp BSLH  &kp RPAR &none
-	&none &kp SE_AMPR  &kp PIPE &kp SEMI  &kp COLON  &none &none &none   &none &none &none &kp LBKT &kp GRAVE &kp 3 &none &none
-                           &none     &none      &none &none &none   &none &none &none &none &none 
+	&none &kp AT       &kp DLLR &kp EQUAL &kp UNDER  &none                                 &none  &kp LBRC &kp DQT   &kp TILDE &kp RBRC &none
+	&none &kp QMARK    &kp EXCL &kp COMMA &kp DOT    &none                                 &none  &kp LPAR &kp SQT   &kp BSLH  &kp RPAR &none
+	&none &kp SE_AMPR  &kp PIPE &kp SEMI  &kp COLON  &none  &trans &trans    &trans &trans &none  &kp LBKT &kp GRAVE &kp none  &none    &none
+                              &trans    &trans     &trans &trans &trans    &trans &trans &trans &trans   &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
@@ -136,7 +136,7 @@
 
 
 //	=== Gaming ===
-		gaming_layer {
+//		gaming_layer {
 // -------------------------------------------                                          ----------------------------------------------
 // |    |   1    |  2   |  3   |  4   |  5   |                                          |       |      |      |      |       |       |
 // -------------------------------------------                                          ----------------------------------------------
@@ -146,16 +146,16 @@
 // ---------------------------------------------------------------  ------------------------------------------------------------------
 //                      |      |      |  F   |  SPACE  |    E    |  |         |         |       |      |      | UNFINISHED!
 //                      ------------------------------------------  -------------------------------------------
-			bindings = <
-	&kp C_MUTE &none  &kp C_PREV &kp C_PP  &kp C_NECT &none                                          &none &none &none &none &none &none
-	&none      &kp AT &kp PRCNT  &kp DLLR  &kp HASH   &none                                          &none &none &none &none &none &none
-	&none      &none  &none      &kp TILDE &none      &none &kp ESC &kp CAPS     &kp LSHFT &kp LSHFT &none &none &none &none &none &none
+//			bindings = <
+//	&kp C_MUTE &none  &kp C_PREV &kp C_PP  &kp C_NECT &none                                          &none &none &none &none &none &none
+//	&none      &kp AT &kp PRCNT  &kp DLLR  &kp HASH   &none                                          &none &none &none &none &none &none
+//	&none      &none  &none      &kp TILDE &none      &none &kp ESC &kp CAPS     &kp LSHFT &kp LSHFT &none &none &none &none &none &none
 
-	&mt LALT TAB &mt LCTRL RET    &mt LGUI BSPC &mt LSHIFT SPACE &to ALPHA
-	&to ALPHA    &mt LSHIFT SPACE &mt LGUI BSPC &mt LCTRL RET    &mt LALT TAB
-			>;
+//	&mt LALT TAB &mt LCTRL RET    &mt LGUI BSPC &mt LSHIFT SPACE &to ALPHA
+//	&to ALPHA    &mt LSHIFT SPACE &mt LGUI BSPC &mt LCTRL RET    &mt LALT TAB
+//			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LG(Z) LA(LG(Z))>;
-		};
+//			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LG(Z) LA(LG(Z))>;
+//		};
 	};
 };
