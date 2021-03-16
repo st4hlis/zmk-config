@@ -1,0 +1,161 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include "keymap-swedish.h"
+
+#define ALPHA 0
+#define MATH  1
+#define SYM   2
+#define NAV   3
+#define GAME  4
+
+/ {
+		behaviors {
+			ll: layer_layer {
+				compatible = "zmk,behavior-hold-tap";
+				label = "LAYER_LAYER";
+				#binding-cells = <2>;
+				tapping_term_ms = <200>;
+				quick_tap_ms = <0>;
+				flavor = "hold-preferred";
+				bindings = <&mo>, <&to>;
+			};
+    };
+
+	keymap {
+		compatible = "zmk,keymap";
+
+
+		alpha_layer {
+
+// UP/DOWN                                                                                               LEFT/RIGHT
+// ----------------------------------------                              ----------------------------------------
+// |     |  Q   |  W  |  F  |  P    |  B  |                              |  J  |  L    |  U  |  Y  |      |     |
+// ----------------------------------------                              ----------------------------------------
+// |     |  A   |  R  |  S  |  T    |  G  |                              |  M  |  N    |  E  |  I  |  O   |     |
+// ------------------------------------------------------  ------------------------------------------------------
+// |     | CTRL | ALT | CMD | SHIFT |     |      |      |  |      |      |     | SHIFT | CMD | ALT | CTRL |     |
+// |     |  Z   |  X  |  C  |  D    |  V  |      |      |  |      |      |  K  |  H    |  Å  |  Ä  |  Ö   |     |
+// ------------------------------------------------------  ------------------------------------------------------
+// [Hold]             |     |       | NAV | SYM  | MATH |  | MATH | SYM  | NAV |       |     |
+// [Press]            |     | LDESK | TAB | SPAC | RET  |  | ESC  | BSPC | DEL | RDESK |     |
+//                    -----------------------------------  -----------------------------------
+
+			bindings = <
+	&none &kp Q       &kp W      &kp F      &kp P        &kp B                               &kp J &kp L        &kp U          &kp Y          &knone 	        &none
+	&none &kp A       &kp R      &kp S      &kp T        &kp G                               &kp M &kp N        &kp E          &kp I          &kp O           &none
+	&none &mt LCTRL Z &mt LALT X &mt LGUI C &mt LSHIFT D &kp V &none &none       &none &none &kp K &mt RSHIFT H &mt RGUI SE_AA &mt RALT SE_AE &mt RCTRL SE_OE &none
+
+	&none        &kp LC(LEFT) &mt NAV TAB &mt SYM SPACE &mt MATH RET  
+	&mt MATH ESC &mt SYM BSPC &mt NAV DEL &mt LC(RIGHT) &none
+			>;
+
+			sensor-bindings = <&inc_dec_kp UP DN &inc_dec_kp LEFT RIGHT>;
+		};
+	};
+
+
+		math_layer {
+
+//  SCROLL                                                                                             TAB
+// ----------------------------------------                          ---------------------------------------
+// |     |  ^   |  <  |  =  |   >   |     |                          |     |   7   |  8  |  9  |     |     |
+// ----------------------------------------                          ---------------------------------------
+// |     |  *   |  /  |  ,  |   .   |     |                          |     |   4   |  5  |  6  |  0  |     |
+// ----------------------------------------------------  ---------------------------------------------------
+// |     | CTRL | OPT | CMD | SHIFT |     |     |     |  |     |     |     |       |     |     |     |     |
+// |     |  %   |  #  |  +  |   -   |     |     |     |  |     |     |     |   1   |  2  |  3  |     |     |
+// ----------------------------------------------------  ---------------------------------------------------
+//                    |     |       |     |     |     |  |     |     |     |       |     |  
+//                    ---------------------------------  ---------------------------------
+
+			bindings = <
+	&none &kp CARET       &kp LT        &kp EQUAL     &kp GT           &none                           &none &kp 7 &kp 8 &kp 9 &none &none
+	&none &kp STAR        &kp FSLH      &kp COMMA     &kp DOT          &none                           &none &kp 4 &kp 5 &kp 6 &kp 0 &none
+	&none &mt LCTRL PRCNT &mt LALT HASH &mt LGUI PLUS &mt LSHIFT MINUS &none &none &none   &none &none &none &kp 1 &kp 2 &kp 3 &none &none
+                                      &none         &none            &none &none &none   &none &none &none &none &none 
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
+		};
+	};
+
+
+		symbol_layer {
+
+//  SCRUB                                                                                        
+// -------------------------------------                          -------------------------------------
+// |     |  @  |  $  |  =  |  _  |     |                          |     |  {  |  "  |  ~  |  }  |     |
+// -------------------------------------                          -------------------------------------
+// |     |  ?  |  !  |  ,  |  .  |     |                          |     |  (  |  '  |  \  |  )  |     |
+// -------------------------------------------------  -------------------------------------------------
+// |     |  &  |  |  |  ;  |  :  |     |     |     |  |     |     |     |  [  |  `  |  ´  |  ]  |     |
+// -------------------------------------------------  -------------------------------------------------
+//                   |     |     |     |     |     |  |     |     |     |     |     |  
+//                   -------------------------------  -------------------------------
+
+			bindings = <
+	&none &kp AT    &kp DLLR &kp EQUAL &kp UNDER  &none                           &none &kp LBRC &kp DQT   &kp TILDE &kp RBRC &none
+	&none &kp QMARK &kp EXCL &kp COMMA &kp DOT    &none                           &none &kp LPAR &kp SQT   &kp BSLH  &kp RPAR &none
+	&none &kp SE_AMPR  &kp PIPE &kp SEMI  &kp COLON  &none &none &none   &none &none &none &kp LBKT &kp GRAVE &kp 3 &none &none
+                           &none     &none      &none &none &none   &none &none &none &none &none 
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
+		};
+	};
+
+
+		navmed_layer {
+
+//   VOL                                                                                                  BRIGHTNESS
+// -------------------------------------------                          -------------------------------------------
+// | MUTE |  F9  |  F10 |  F11 |  F12 | PREV |                          |     | LDSK | EXPO | RDSK |      | SLEEP |
+// -------------------------------------------                          -------------------------------------------
+// |      |  F5  |  F6  |  F7  |  F8  | PLAY |                          |     | LEFT |  UP  | RGHT | HOME |       |
+// -------------------------------------------------------  -------------------------------------------------------
+// |      |  F1  |  F2  |  F3  |  F4  | NEXT |  v  |  v  |  |  v  |  v  |     | LTAB | DOWN | RTAB | END  |       |
+// -------------------------------------------------------  -------------------------------------------------------
+//                      |      |      |  v   |  v  |  v  |  |  v  |  v  |  v  |  v   |   v  | 
+//                      ----------------------------------  ---------------------------------
+			bindings = <
+	&kp LG(LS(C_EJECT)) &none     &none       &none       &none       &none                                  &none  &kp C_PREV &kp C_PP &kp C_NEXT &none     &kp C_MUTE
+	&none               &kp SE_AT &kp SE_PERC &kp SE_DLR  &kp SE_HASH &none                                  &none  &kp LEFT   &kp UP   &kp RIGHT  &kp RIGHT &none
+	&none               &none     &none       &kp SE_TILD &none       &none  &trans &trans     &trans &trans &none  &none      &kp DOWN &none      &none     &none
+																						&trans      &trans      &trans &trans &trans     &trans &trans &trans &trans     &trans 
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_D &inc_dec_kp C_BRI_UP C_BRI_DN>;
+		};
+	};
+
+
+//	=== Gaming ===
+		gaming_layer {
+// -------------------------------------------                                          ----------------------------------------------
+// |    |   1    |  2   |  3   |  4   |  5   |                                          |       |      |      |      |       |       |
+// -------------------------------------------                                          ----------------------------------------------
+// | H  | SHIFT  |  A   |  W   |  D   |  Q   |                                          |       |      |      |      |       |       |
+// ---------------------------------------------------------------  ------------------------------------------------------------------
+// | X  | CTRL/C |  Q   |  S   |  R   |  G   |   ESC   |    B    |  |         |         |       |      |      |      |       |       |
+// ---------------------------------------------------------------  ------------------------------------------------------------------
+//                      |      |      |  F   |  SPACE  |    E    |  |         |         |       |      |      | UNFINISHED!
+//                      ------------------------------------------  -------------------------------------------
+			bindings = <
+	&kp C_MUTE &none  &kp C_PREV &kp C_PP  &kp C_NECT &none                                          &none &none &none &none &none &none
+	&none      &kp AT &kp PRCNT  &kp DLLR  &kp HASH   &none                                          &none &none &none &none &none &none
+	&none      &none  &none      &kp TILDE &none      &none &kp ESC &kp CAPS     &kp LSHFT &kp LSHFT &none &none &none &none &none &none
+
+	&mt LALT TAB &mt LCTRL RET    &mt LGUI BSPC &mt LSHIFT SPACE &to ALPHA
+	&to ALPHA    &mt LSHIFT SPACE &mt LGUI BSPC &mt LCTRL RET    &mt LALT TAB
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LG(Z) LA(LG(Z))>;
+		};
+	};
+};
