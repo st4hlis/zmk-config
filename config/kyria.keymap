@@ -47,9 +47,9 @@
 //                    -----------------------------------  -----------------------------------
 
 			bindings = <
-	&mo MATH &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L       &kp U      &kp Y      &none 	     &mo MATH
-	&mo NAV  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E &mt RALT I &mt RCTRL O &mo NAV
-	&mo SYM  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp E_AA   &kp E_AE   &kp E_OE    &mo SYM
+	&mo MATH &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L       &kp U       &kp Y       &none 	     &mo MATH
+	&mo NAV  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E  &mt RALT I  &mt RCTRL O &mo NAV
+	&mo SYM  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp SE_AA   &kp SE_AE   &kp SE_OE   &mo SYM
 
 	&none        &kp LC(LEFT) &lt SYM TAB &lt NAV SPACE &lt MATH RET  
 	&lt MATH ESC &lt NAV BSPC &lt SYM DEL &kp LC(RIGHT) &none
