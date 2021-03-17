@@ -42,17 +42,17 @@
 // |     | CTRL | ALT | CMD | SHIFT |     |      |      |  |      |      |     | SHIFT | CMD | ALT | CTRL |     |
 // |     |  Z   |  X  |  C  |  D    |  V  |      |      |  |      |      |  K  |  H    |  Å  |  Ä  |  Ö   |     |
 // ------------------------------------------------------  ------------------------------------------------------
-// [Hold]             |     |       | NAV | SYM  | MATH |  | MATH | SYM  | NAV |       |     |
+// [Hold]             |     |       | SYM | NAV  | MATH |  | MATH | NAV  | SYM |       |     |
 // [Press]            |     | LDESK | TAB | SPAC | RET  |  | ESC  | BSPC | DEL | RDESK |     |
 //                    -----------------------------------  -----------------------------------
 
 			bindings = <
-	&mo MATH &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L        &kp U          &kp Y          &none 	       &mo MATH
-	&mo SYM  &kp A       &kp R      &kp S      &kp T       &kp G                               &kp M &kp N        &kp E          &kp I          &kp O          &mo SYM
-	&mo NAV  &mt LCTRL Z &mt LALT X &mt LGUI C &mt LSHFT D &kp V &none &none       &none &none &kp K &mt RSHFT H &mt RGUI SE_AA &mt RALT SE_AE &mt RCTRL SE_OE &mo NAV
+	&mo MATH &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L       &kp U      &kp Y      &none 	     &mo MATH
+	&mo NAV  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E &mt RALT I &mt RCTRL O &mo NAV
+	&mo SYM  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp E_AA   &kp E_AE   &kp E_OE    &mo SYM
 
-	&none        &kp LC(LEFT) &lt NAV TAB &lt SYM SPACE &lt MATH RET  
-	&lt MATH ESC &lt SYM BSPC &lt NAV DEL &kp LC(RIGHT) &none
+	&none        &kp LC(LEFT) &lt SYM TAB &lt NAV SPACE &lt MATH RET  
+	&lt MATH ESC &lt NAV BSPC &lt SYM DEL &kp LC(RIGHT) &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
@@ -76,7 +76,7 @@
 	&trans &kp SE_CIRC       &kp SE_LT        &kp SE_EQL       &kp SE_GT         &none                                &none  &kp N7 &kp N8 &kp N9 &none  &trans
 	&trans &kp SE_ASTR       &kp SE_SLSH      &kp SE_COMMA     &kp SE_DOT        &none                                &none  &kp N4 &kp N5 &kp N6 &kp N0 &trans
 	&trans &mt LCTRL SE_PERC &mt LALT SE_HASH &mt LGUI SE_PLUS &mt LSHFT SE_MINS &none  &trans &trans   &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &trans
-                                           &none            &trans            &trans &trans &trans   &trans &trans &trans &trans &none 
+                                           &none            &trans             &trans &trans &trans   &trans &trans &trans &trans &none 
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
