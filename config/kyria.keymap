@@ -47,8 +47,8 @@
 //                    -----------------------------------  -----------------------------------
 
 			bindings = <
-	&none &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L        &kp U          &kp Y          &knone 	        &none
-	&none &kp A       &kp R      &kp S      &kp T       &kp G                               &kp M &kp N        &kp E          &kp I          &kp O           &none
+	&none &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L        &kp U          &kp Y          &none 	        &none
+	&none &kp A       &kp R      &kp S      &kp T       &kp G                               &kp M &kp N        &kp E          &kp I          &kp O          &none
 	&none &mt LCTRL Z &mt LALT X &mt LGUI C &mt LSHFT D &kp V &none &none       &none &none &kp K &mt RSHFT H &mt RGUI SE_AA &mt RALT SE_AE &mt RCTRL SE_OE &none
 
 	&none        &kp LC(LEFT) &mt NAV TAB &mt SYM SPACE &mt MATH RET  
@@ -69,7 +69,7 @@
 // |     | CTRL | OPT | CMD | SHIFT |     |     |     |  |     |     |     |       |     |     |     |     |
 // |     |  %   |  #  |  +  |   -   |     |     |     |  |     |     |     |   1   |  2  |  3  |     |     |
 // ----------------------------------------------------  ---------------------------------------------------
-//             SCROLL |     |       |     |     |     |  |     |     |     |       |     | TAB 
+//    VERTICAL SCROLL |     |       |     |     |     |  |     |     |     |       |     | HORIZONTAL SCROLL 
 //                    ---------------------------------  ---------------------------------
 
 			bindings = <
@@ -92,7 +92,7 @@
 // -------------------------------------------------  -------------------------------------------------
 // |     |  &  |  |  |  ;  |  :  |     |     |     |  |     |     |     |  [  |  `  |  ´  |  ]  |     |
 // -------------------------------------------------  -------------------------------------------------
-//             SCRUB |     |     |     |     |     |  |     |     |     |     |     |  
+//             SCRUB |     |     |     |     |     |  |     |     |     |     |     | TAB
 //                   -------------------------------  -------------------------------
 
 			bindings = <
