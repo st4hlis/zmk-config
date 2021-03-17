@@ -53,7 +53,7 @@
 #define SE_LABK NON_US_BSLH
 #define SE_LT SE_LABK
 /*>*/
-#define SE_RABK LS(LABK)
+#define SE_RABK LS(SE_LABK)
 #define SE_GT SE_RABK
 
 /* MATH */
