@@ -55,7 +55,7 @@
 	&mt MATH ESC &mt SYM BSPC &mt NAV DEL &mt LC(RIGHT) &none
 			>;
 
-			sensor-bindings = <&inc_dec_kp UP DN &inc_dec_kp LEFT RIGHT>;
+			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
 		};
 
 
