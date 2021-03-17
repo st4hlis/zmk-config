@@ -79,7 +79,7 @@
                                            &none            &trans             &trans &trans &trans   &trans &trans &trans &trans &none 
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
+			sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
 		};
 
 
