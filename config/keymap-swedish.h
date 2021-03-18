@@ -8,7 +8,7 @@
 #define SE_ARING LBRC
 #define SE_AA SE_ARING
 /*Ä*/
-#define SE_ADIA SQT
+#define SE_ADIA LBKT
 #define SE_AE SE_ADIA
 /*Ö*/
 #define SE_ODIA SEMI
@@ -34,23 +34,23 @@
 /*/*/
 #define SE_SLSH LS(SE_7)
 /*(backslash)*/
-#define SE_BSLS RA(SE_PLUS)
+#define SE_BSLS LA(LS(SE_7))
 /*|*/
-#define SE_PIPE RA(SE_LABK)
+#define SE_PIPE LA(SE_7)
 /*(*/
 #define SE_LPRN LS(SE_8)
 /*)*/
 #define SE_RPRN LS(SE_9)
 /*[*/
-#define SE_LBRC RA(SE_8)
+#define SE_LBKT RA(SE_8)
 /*]*/
 #define SE_RBRC RA(SE_9)
 /*{*/
-#define SE_LCBR RA(SE_7)
+#define SE_LCBR LA(LS(SE_8))
 /*}*/
-#define SE_RCBR RA(SE_0)
+#define SE_RCBR LA(LS(SE_9))
 /*<*/
-#define SE_LABK NON_US_BSLH
+#define SE_LABK GRAVE
 #define SE_LT SE_LABK
 /*>*/
 #define SE_RABK LS(SE_LABK)
