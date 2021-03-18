@@ -108,24 +108,24 @@
 
 		navmed_layer {
 
-// -------------------------------------------                          -----------------------------------------
-// |      |  F9  |  F10 |  F11 |  F12 | PREV |                          |     | LTAB |      | RTAB |      |     |
-// -------------------------------------------                          -----------------------------------------
-// |      |  F5  |  F6  |  F7  |  F8  | PLAY |                          |     | LEFT |  UP  | RGHT | PGUP |     |
-// -------------------------------------------------------  -----------------------------------------------------
-// |      |  F1  |  F2  |  F3  |  F4  | NEXT |  v  |  v  |  |  v  |  v  |     | HOME | DOWN | END  | PGDN |     |
-// -------------------------------------------------------  -----------------------------------------------------
-//                  VOL | MUTE |      |  v   |  v  |  v  |  |  v  |  v  |  v  |  v   | SLP  | BRIGHTNESS
-//                      ----------------------------------  ---------------------------------
+// -------------------------------------------                          ------------------------------------------
+// |      |  F9  |  F10 |  F11 |  F12 |      |                          |      | PREV | PLAY | NEXT |      |     |
+// -------------------------------------------                          ------------------------------------------
+// |      |  F5  |  F6  |  F7  |  F8  |      |                          | HOME | LEFT |  UP  | RGHT | PGUP |     |
+// -------------------------------------------------------  ------------------------------------------------------
+// |      |  F1  |  F2  |  F3  |  F4  |      |  v  |  v  |  |  v  |  v  | END  | LTAB | DOWN | RTAB | PGDN |     |
+// -------------------------------------------------------  ------------------------------------------------------
+//           BRIGHTNESS | SLP  |      |  v   |  v  |  v  |  |  v  |  v  |  v   |  v   | MUTE | VOL
+//                      ----------------------------------  ----------------------------------
 			bindings = <
-	&trans &kp F9 &kp F10 &kp F11    &kp F12 &kp C_PREV                                 &none  &kp LC(LS(TAB)) &none      &kp LC(TAB) &none     &trans
-	&trans &kp F5 &kp F6  &kp F7     &kp F8  &kp C_PP                                   &none  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &trans
-	&trans &kp F1 &kp F2  &kp F3     &kp F4  &kp C_NEXT &trans &trans     &trans &trans &none  &kp HOME        &kp DOWN   &kp END     &kp PG_DN &trans
-											  &kp C_MUTE &trans  &trans     &trans &trans     &trans &trans &trans &trans          &kp LG(LS(C_EJECT))
+	&trans &kp F9 &kp F10 &kp F11             &kp F12 &kp C_PREV                                 &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &trans
+	&trans &kp F5 &kp F6  &kp F7              &kp F8  &kp C_PP                                   &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &trans
+	&trans &kp F1 &kp F2  &kp F3              &kp F4  &kp C_NEXT &trans &trans     &trans &trans &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &trans
+											  &kp LG(LS(C_EJECT)) &trans  &trans     &trans &trans     &trans &trans &trans &trans          &kp C_MUTE
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_UP C_BRI_DN>;
-		};
+				sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+			};
 
 
 //	=== Gaming ===
