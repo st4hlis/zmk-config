@@ -5,10 +5,10 @@
 
 /* LETTERS */
 /* Å */
-#define SE_ARING LBRC
+#define SE_ARING LBKT
 #define SE_AA SE_ARING
 /*Ä*/
-#define SE_ADIA LBKT
+#define SE_ADIA SQT
 #define SE_AE SE_ADIA
 /*Ö*/
 #define SE_ODIA SEMI
@@ -82,7 +82,7 @@
 /*€*/
 #define SE_EUR RA(SE_5)
 /*~*/
-#define SE_TILD RA(SE_DIAE)
+#define SE_TILD RA(RBKT)
 /*µ*/
 #define SE_MICR RA(M)
 
