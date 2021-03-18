@@ -44,11 +44,11 @@
 /*[*/
 #define SE_LBKT RA(SE_8)
 /*]*/
-#define SE_RBRC RA(SE_9)
+#define SE_RBKT RA(SE_9)
 /*{*/
-#define SE_LCBR LA(LS(SE_8))
+#define SE_LBRC LA(LS(SE_8))
 /*}*/
-#define SE_RCBR LA(LS(SE_9))
+#define SE_RBRC LA(LS(SE_9))
 /*<*/
 #define SE_LABK GRAVE
 #define SE_LT SE_LABK

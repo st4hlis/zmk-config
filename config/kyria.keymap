@@ -96,9 +96,9 @@
 //                   -------------------------------  -------------------------------
 
 			bindings = <
-	&trans &kp SE_AT   &kp SE_HASH &kp SE_EQL   &kp SE_UNDS  &none                                 &none  &kp SE_LCBR &kp SE_DQUO &kp SE_TILD &kp SE_RCBR &trans
+	&trans &kp SE_AT   &kp SE_HASH &kp SE_EQL   &kp SE_UNDS  &none                                 &none  &kp SE_LBRC &kp SE_DQUO &kp SE_TILD &kp SE_RBRC &trans
 	&trans &kp SE_QUES &kp SE_EXLM &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_QUOT &kp SE_BSLS &kp SE_RPRN &trans
-	&trans &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBRC &kp SE_GRV  &kp SE_ACUT &kp SE_RBRC &trans
+	&trans &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_GRV  &kp SE_ACUT &kp SE_RBKT &trans
                                  &none        &trans       &trans &trans &trans    &trans &trans &trans &trans      &none
 			>;
 
