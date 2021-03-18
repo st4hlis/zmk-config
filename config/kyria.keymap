@@ -51,8 +51,8 @@
 	&mo NAV  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E  &mt RALT I  &mt RCTRL O &mo NAV
 	&mo SYM  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp SE_AA   &kp SE_AE   &kp SE_OE   &mo SYM
 
-	&none        &kp LC(LEFT) &lt SYM TAB &lt NAV SPACE &lt MATH RET  
-	&lt MATH ESC &lt NAV BSPC &lt SYM DEL &kp LC(RIGHT) &none
+	&none        &kp LC(LEFT) &lt SYM TAB &lt NAV SPACE &lt MATH BSPC  
+	&lt MATH DEL &lt NAV RET  &lt SYM ESC &kp LC(RIGHT) &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
