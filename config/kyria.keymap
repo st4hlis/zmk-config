@@ -37,7 +37,7 @@
 // -----------------------------------------                              ------------------------------------------
 // | MATH |  Q   |  W  |  F  |  P    |  B  |                              |  J   |  L    |  U  |  Y  |      | MATH |
 // -----------------------------------------                              ------------------------------------------
-// |      | CTRL | ALT | CMD | SHIFT |      |      |      |  |      |     |      | SHIFT | CMD | ALT | CTRL |      |
+// |      | CTRL | ALT | CMD | SHIFT |     |                              |      | SHIFT | CMD | ALT | CTRL |      |
 // | SYM  |  A   |  R  |  S  |  T    |  G  |                              |  M   |  N    |  E  |  I  |  O   | SYM  |
 // --------------------------------------------------------  -------------------------------------------------------
 // | NAV  |  Z   |  X  |  C  |  D    |  V   |      |      |  |      |     |  K   |  H    |  Å  |  Ä  |  Ö   | NAV  |
@@ -55,7 +55,7 @@
 	&lt NAV DEL &lt SYM RET  &lt MATH ESC &kp LC(RIGHT) &none
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP >;
 		};
 			// sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
 
@@ -81,7 +81,7 @@
 			>;
 
 			
-			sensor-bindings = <&inc_dec_kp LS(LC(TAB)) LC(TAB) &none >;
+			sensor-bindings = <&inc_dec_kp LS(LC(TAB)) LC(TAB) &inc_dec_kp LS(LC(TAB)) LC(TAB) >;
 		};
 			// sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
 
