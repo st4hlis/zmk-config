@@ -34,28 +34,29 @@
 		alpha_layer {
 
 // UP/DOWN                                                                                               LEFT/RIGHT
-// -----------------------------------------                              -----------------------------------------
-// | MATH |  Q   |  W  |  F  |  P    |  B  |                              |  J  |  L    |  U  |  Y  |      | MATH |
-// -----------------------------------------                              -----------------------------------------
-// | NAV  |  A   |  R  |  S  |  T    |  G  |                              |  M  |  N    |  E  |  I  |  O   | NAV  |
-// -------------------------------------------------------  -------------------------------------------------------
-// | SYM  | CTRL | ALT | CMD | SHIFT |     |      |      |  |      |      |     | SHIFT | CMD | ALT | CTRL | SYM  |
-// |      |  Z   |  X  |  C  |  D    |  V  |      |      |  |      |      |  K  |  H    |  Å  |  Ä  |  Ö   |      |
-// -------------------------------------------------------  -------------------------------------------------------
-// [Hold]              |     |       | SYM | NAV  | MATH |  | MATH | NAV  | SYM |       |     |
-// [Press]             |     | LDESK | TAB | SPAC | BSPC |  | DEL  | RET  | ESC | RDESK |     |
-//                     -----------------------------------  -----------------------------------
+// -----------------------------------------                              ------------------------------------------
+// | MATH |  Q   |  W  |  F  |  P    |  B  |                              |  J   |  L    |  U  |  Y  |      | MATH |
+// -----------------------------------------                              ------------------------------------------
+// |      | CTRL | ALT | CMD | SHIFT |      |      |      |  |      |     |      | SHIFT | CMD | ALT | CTRL |      |
+// | SYM  |  A   |  R  |  S  |  T    |  G  |                              |  M   |  N    |  E  |  I  |  O   | SYM  |
+// --------------------------------------------------------  -------------------------------------------------------
+// | NAV  |  Z   |  X  |  C  |  D    |  V   |      |      |  |      |     |  K   |  H    |  Å  |  Ä  |  Ö   | NAV  |
+// --------------------------------------------------------  -------------------------------------------------------
+// [Hold]              |     |       | MATH | SYM  | NAV  |  | NAV  | SYM | MATH |       |     |
+// [Press]             |     | LDESK | TAB  | SPAC | BSPC |  | DEL  | RET | ESC  | RDESK |     |
+//                     ------------------------------------  -----------------------------------
 
 			bindings = <
 	&mo MATH &kp Q       &kp W      &kp F      &kp P       &kp B                               &kp J &kp L       &kp U       &kp Y       &none 	     &mo MATH
-	&mo NAV  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E  &mt RALT I  &mt RCTRL O &mo NAV
-	&mo SYM  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp SE_AA   &kp SE_AE   &kp SE_OE   &mo SYM
+	&mo SYM  &mt LCTRL A &mt LALT R &mt LGUI S &mt LSHFT T &kp G                               &kp M &mt RSHFT N &mt RGUI E  &mt RALT I  &mt RCTRL O &mo SYM
+	&mo NAV  &kp Z       &kp X      &kp C      &kp D       &kp V &none &none       &none &none &kp K &kp H       &kp SE_AA   &kp SE_AE   &kp SE_OE   &mo NAV
 
-	&none        &kp LC(LEFT) &lt SYM TAB &lt NAV SPACE &lt MATH BSPC  
-	&lt MATH DEL &lt NAV RET  &lt SYM ESC &kp LC(RIGHT) &none
+	&kp C_MUTE  &kp LC(LEFT) &lt MATH TAB &lt SYM SPACE &lt NAV BSPC  
+	&lt NAV DEL &lt SYM RET  &lt MATH ESC &kp LC(RIGHT) &none
 			>;
 
-			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
+			// sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
 		};
 
 
@@ -64,22 +65,24 @@
 // ----------------------------------------                          ---------------------------------------
 // |     |  <   |  /  |  =  |   >   |     |                          |     |   7   |  8  |  9  |     |     |
 // ----------------------------------------                          ---------------------------------------
+// |     | CTRL | OPT | CMD | SHIFT |     |                          |     |       |     |     |     |     |
 // |     |  ^   |  *  |  ,  |   .   |     |                          |     |   4   |  5  |  6  |  0  |     |
 // ----------------------------------------------------  ---------------------------------------------------
-// |     | CTRL | OPT | CMD | SHIFT |     |     |     |  |     |     |     |       |     |     |     |     |
 // |     |  %   |  $  |  +  |   -   |     |     |     |  |     |     |     |   1   |  2  |  3  |     |     |
 // ----------------------------------------------------  ---------------------------------------------------
 //    VERTICAL SCROLL |     |       |     |     |     |  |     |     |     |       |     | HORIZONTAL SCROLL 
 //                    ---------------------------------  ---------------------------------
 
 			bindings = <
-	&trans &kp SE_LT         &kp SE_SLSH      &kp SE_EQL        &kp SE_GT        &none                                &none  &kp N7 &kp N8 &kp N9 &none  &trans
-	&trans &mt LCTRL SE_CIRC &mt LALT SE_ASTR &mt LGUI SE_COMMA &mt LSHFT SE_DOT &none                                &none  &kp N4 &kp N5 &kp N6 &kp N0 &trans
-	&trans &kp SE_PERC       &kp SE_DLR       &kp SE_PLUS       &kp SE_MINS      &none  &trans &trans   &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &trans
-                                            &none             &trans           &trans &trans &trans   &trans &trans &trans &trans &none 
+	&none &kp SE_LT         &kp SE_SLSH      &kp SE_EQL        &kp SE_GT        &none                                &none  &kp N7 &kp N8 &kp N9 &none  &none
+	&none &mt LCTRL SE_CIRC &mt LALT SE_ASTR &mt LGUI SE_COMMA &mt LSHFT SE_DOT &none                                &none  &kp N4 &kp N5 &kp N6 &kp N0 &none
+	&none &kp SE_PERC       &kp SE_DLR       &kp SE_PLUS       &kp SE_MINS      &none  &trans &trans   &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &none
+                                          &none             &trans           &trans &trans &trans   &trans &trans &trans &trans &none 
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
+			
+			sensor-bindings = <&inc_dec_kp LS(LC(TAB)) LC(TAB) &none >;
+			// sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
 		};
 
 
@@ -96,13 +99,13 @@
 //                   -------------------------------  -------------------------------
 
 			bindings = <
-	&trans &kp SE_AT   &kp SE_HASH &kp SE_EQL   &kp SE_UNDS  &none                                 &none  &kp SE_LBRC &kp SE_BSLS &kp SE_TILD &kp SE_RBRC &trans
-	&trans &kp SE_QUES &kp SE_EXLM &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_QUOT &kp SE_DQUO &kp SE_RPRN &trans
-	&trans &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_GRV  &kp SE_ACUT &kp SE_RBKT &trans
-                                 &none        &trans       &trans &trans &trans    &trans &trans &trans &trans      &none
+	&none &kp SE_AT   &kp SE_HASH &kp SE_EQL   &kp SE_UNDS  &none                                 &none  &kp SE_LBRC &kp SE_BSLS &kp SE_TILD &kp SE_RBRC &none
+	&none &kp SE_QUES &kp SE_EXLM &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_QUOT &kp SE_DQUO &kp SE_RPRN &none
+	&none &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_GRV  &kp SE_ACUT &kp SE_RBKT &none
+                                &none        &trans       &trans &trans &trans    &trans &trans &trans &trans      &none
 			>;
 
-			sensor-bindings = <&inc_dec_kp LC(Z) LS(LC(Z)) &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
+			sensor-bindings = <&inc_dec_kp LG(Z) LS(LG(Z)) &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
 		};
 
 
@@ -118,13 +121,13 @@
 //           BRIGHTNESS | SLP  |      |  v   |  v  |  v  |  |  v  |  v  |  v   |  v   | MUTE | VOL
 //                      ----------------------------------  ----------------------------------
 			bindings = <
-	&trans &kp F9 &kp F10 &kp F11             &kp F12 &kp C_PREV                                 &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &trans
-	&trans &kp F5 &kp F6  &kp F7              &kp F8  &kp C_PP                                   &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &trans
-	&trans &kp F1 &kp F2  &kp F3              &kp F4  &kp C_NEXT &trans &trans     &trans &trans &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &trans
-											  &kp LG(LS(C_EJECT)) &trans  &trans     &trans &trans     &trans &trans &trans &trans          &kp C_MUTE
+	&none &kp F9 &kp F10 &kp F11             &kp F12 &kp C_PREV                                 &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
+	&none &kp F5 &kp F6  &kp F7              &kp F8  &kp C_PP                                   &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
+	&none &kp F1 &kp F2  &kp F3              &kp F4  &kp C_NEXT &trans &trans     &trans &trans &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
+											 &kp LG(LS(C_EJECT)) &trans  &trans     &trans &trans     &trans &trans &trans    &trans          &kp C_MUTE
 			>;
 
-				sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+				sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
 			};
 
 
@@ -148,7 +151,7 @@
 //	&to ALPHA    &mt LSHIFT SPACE &mt LGUI BSPC &mt LCTRL RET    &mt LALT TAB
 //			>;
 
-//			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LG(Z) LA(LG(Z))>;
+//			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LG(Z) LA(LG(Z))>;
 //		};
 	};
 };
