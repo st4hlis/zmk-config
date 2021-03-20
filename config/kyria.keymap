@@ -25,9 +25,9 @@
 				flavor = "hold-preferred";
 				bindings = <&mo>, <&to>;
 			};
-			lt: layer_tap {
+			ld: layer_double_tap {
 				compatible = "zmk,behavior-hold-tap";
-				label = "LAYER_TAP";
+				label = "LAYER_DOUBLE_TAP";
 				#binding-cells = <2>;
 				tapping_term_ms = <200>;
 				quick_tap_ms = <100>;
@@ -68,8 +68,8 @@
 	&ll SYM  &hm LCTRL A &hm LALT R &hm LSHFT S &hm LCMD T &kp G                                 &kp M &hm RCMD N &hm RSHFT E &hm RALT I &hm RCTRL O &ll SYM
 	&ll NAV  &kp Z       &kp X      &kp C       &kp D      &kp V &kp CAPS &none    &none &kp INS &kp K &kp H      &kp SE_AA   &kp SE_AE  &kp SE_OE   &ll NAV
 
-	&none       &kp LC(LEFT) &lt MATH TAB &lt SYM SPACE &lt NAV BSPC  
-	&lt NAV DEL &lt SYM RET  &lt MATH ESC &kp LC(RIGHT) &none
+	&none       &kp LC(LEFT) &ld MATH TAB &ld SYM SPACE &ld NAV BSPC  
+	&ld NAV DEL &ld SYM RET  &ld MATH ESC &kp LC(RIGHT) &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT >;
