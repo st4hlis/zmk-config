@@ -25,12 +25,21 @@
 				flavor = "hold-preferred";
 				bindings = <&mo>, <&to>;
 			};
+			lt: layer_tap {
+				compatible = "zmk,behavior-hold-tap";
+				label = "LAYER_TAP";
+				#binding-cells = <2>;
+				tapping_term_ms = <200>;
+				quick_tap_ms = <100>;
+				flavor = "balanced";
+				bindings = <&mo>, <&kp>;
+			};
 			hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick_tap_ms = <100>;
+            quick_tap_ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
       };
@@ -133,7 +142,7 @@
 	&to ALPHA &kp      F9 &kp      F10 &kp     F11 &kp F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &to ALPHA
 	&to ALPHA &mt LALT F5 &mt LCTRL F6 &mt LGUI F7 &kp  F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &to ALPHA
 	&to ALPHA &kp      F1 &kp       F2 &kp      F3 &kp  F4 &none  &trans &trans     &trans &trans &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &to ALPHA
-											               &kp MUTE    &trans  &trans &trans &trans     &trans &trans &trans    &trans          &none
+											               &kp C_MUTE  &trans  &trans &trans &trans     &trans &trans &trans    &trans          &none
 			>;
 
 				sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
