@@ -83,20 +83,20 @@
 		math_layer {
 
 // ----------------------------------------                          ----------------------------------------
-// |     |  <   |  /  |   =   |  >  |     |                          |     |  7  |   8   |  9  |      |     |
+// |     |  $   |  =  |   <   |  >  |     |                          |     |  7  |   8   |  9  |      |     |
 // ----------------------------------------                          ----------------------------------------
 // |     | CTRL | ALT | SHIFT | CMD |     |                          |     | CMD | SHIFT | ALT | CTRL |     |
 // |     |  +   |  -  |   ,   |  .  |     |                          |     |  4  |   5   |  6  |  0   |     |
 // ----------------------------------------------------  ----------------------------------------------------
-// |     |  %   |  $  |   ^   |  *  |     |     |     |  |     |     |     |  1  |   2   |  3  |      |     |
+// |     |  %   |  /  |   ^   |  *  |     |     |     |  |     |     |     |  1  |   2   |  3  |      |     |
 // ----------------------------------------------------  ----------------------------------------------------
 //         BRIGHTNESS | SLEEP |     |     |     |     |  |     |     |     |     |       | HORIZONTAL SCROLL 
 //                    ---------------------------------  ---------------------------------
 
 			bindings = <
-	&none &kp SE_LT         &kp SE_SLSH      &kp SE_EQL         &kp SE_GT       &none                               &none  &kp N7 &kp N8 &kp N9 &none  &none
+	&none &kp SE_DLR        &kp SE_EQL       &kp SE_LT          &kp SE_GT       &none                               &none  &kp N7 &kp N8 &kp N9 &none  &none
 	&none &hm LCTRL SE_PLUS &hm LALT SE_MINS &hm LSHFT SE_COMMA &hm LCMD SE_DOT &none                               &none  &kp N4 &kp N5 &kp N6 &kp N0 &none
-	&none &kp SE_PERC       &kp SE_DLR       &kp SE_CIRC        &kp SE_ASTR     &none  &trans &trans  &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &none
+	&none &kp SE_PERC       &kp SE_SLSH      &kp SE_CIRC        &kp SE_ASTR     &none  &trans &trans  &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &none
                                            &none              &trans          &trans &trans &trans  &trans &trans &trans &trans &none 
 			>;
 
@@ -109,19 +109,19 @@
 		symbol_layer { 
                                                                                    
 // -------------------------------------                          -------------------------------------
-// |     |  @  |  #  |  =  |  _  |     |                          |     |  {  |  \  |  ~  |  }  |     |
+// |     |  #  |  =  |  ?  |  !  |     |                          |     |  {  |  }  |  \  |  ~  |     |
 // -------------------------------------                          -------------------------------------
-// |     |  ?  |  !  |  ,  |  .  |     |                          |     |  (  |  '  |  "  |  )  |     | 
+// |     |  @  |  _  |  ,  |  .  |     |                          |     |  (  |  )  |  '  |  "  |     | 
 // -------------------------------------------------  -------------------------------------------------
-// |     |  &  |  |  |  ;  |  :  |     |     |     |  |     |     |     |  [  |  `  |  ´  |  ]  |     |
+// |     |  &  |  |  |  ;  |  :  |     |     |     |  |     |     |     |  [  |  ]  |  `  |  ´  |     |
 // -------------------------------------------------  -------------------------------------------------
 //             SCRUB |     |     |     |     |     |  |     |     |     |     |     | 	
 //                   -------------------------------  -------------------------------
 
 			bindings = <
-	&to ALPHA &kp SE_AT   &kp SE_HASH &kp SE_EQL   &kp SE_UNDS  &none                                 &none  &kp SE_LBRC &kp SE_BSLS &kp SE_TILD &kp SE_RBRC &to ALPHA
-	&to ALPHA &kp SE_QUES &kp SE_EXLM &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_QUOT &kp SE_DQUO &kp SE_RPRN &to ALPHA
-	&to ALPHA &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_GRV  &kp SE_ACUT &kp SE_RBKT &to ALPHA
+	&to ALPHA &kp SE_HASH &kp SE_EQL  &kp SE_QUES  &kp SE_EXLM  &none                                 &none  &kp SE_LBRC &kp SE_RBRC &kp SE_BSLS &kp SE_TILD &to ALPHA
+	&to ALPHA &kp SE_AT   &kp SE_UNDS &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_RPRN &kp SE_QUOT &kp SE_DQUO &to ALPHA
+	&to ALPHA &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_RBKT &kp SE_GRV  &kp SE_ACUT &to ALPHA
                                     &none        &trans       &trans &trans &trans    &trans &trans &trans &trans      &none
 			>;
 
