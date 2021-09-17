@@ -61,18 +61,18 @@
 // |      | CTRL | ALT | SHIFT |  CMD  |      |                             |      |  CMD  | SHIFT | ALT |  CTRL  |      |
 // | SYM  |  A   |  R  |   S   |   T   |  G   |                             |  M   |   N   |   E   |  I  |   O    | SYM  |
 // ----------------------------------------------------------  -----------------------------------------------------------
-// | NAV  |  Z   |  X  |   C   |   D   |  V   | CAPS |      |  |      | INS |  K   |   H   |   Å   |  Ä  |   Ö    | NAV  |
+// | NAV  |  Z   |  X  |   C   |   D   |  V   | CAPS | BTCL |  | BTCL | INS |  K   |   H   |   Å   |  Ä  |   Ö    | NAV  |
 // ----------------------------------------------------------  -----------------------------------------------------------
 // [Hold]              |       |       | MATH | SYM  | NAV  |  | NAV  | SYM | MATH |       |       |
 // [Tap]    LEFT/RIGHT |       | LDESK | TAB  | SPAC | BSPC |  | DEL  | RET | ESC  | RDESK |       |
 //                     --------------------------------------  -------------------------------------
 
 			bindings = <
-	LL(MATH) &kp Q       &kp W      &kp F       &kp P      &kp B                                 &kp J &kp L      &kp U       &kp Y      &sk RSHFT   LL(MATH)
-	LL(SYM)  &hm LCTRL A &hm LALT R &hm LSHFT S &hm LCMD T &kp G                                 &kp M &hm RCMD N &hm RSHFT E &hm RALT I &hm RCTRL O LL(SYM)
-	LL(NAV)  &kp Z       &kp X      &kp C       &kp D      &kp V &kp CAPS &none    &none &kp INS &kp K &kp H      &kp SE_AA   &kp SE_AE  &kp SE_OE   LL(NAV)
+	LL(MATH) &kp Q       &kp W      &kp F       &kp P      &kp B                                     &kp J &kp L      &kp U       &kp Y      &sk RSHFT   LL(MATH)
+	LL(SYM)  &hm LCTRL A &hm LALT R &hm LSHFT S &hm LCMD T &kp G                                     &kp M &hm RCMD N &hm RSHFT E &hm RALT I &hm RCTRL O LL(SYM)
+	LL(NAV)  &kp Z       &kp X      &kp C       &kp D      &kp V &kp CAPS &BT_CLR    &BT_CLR &kp INS &kp K &kp H      &kp SE_AA   &kp SE_AE  &kp SE_OE   LL(NAV)
 
-	                 &none &kp LC(LEFT) &ld MATH TAB &ld SYM SPACE &ld NAV BSPC    &ld NAV DEL &ld SYM RET  &ld MATH ESC &kp LC(RIGHT) &none
+	                     &none &kp LC(LEFT) &ld MATH TAB &ld SYM SPACE &ld NAV BSPC    &ld NAV DEL &ld SYM RET  &ld MATH ESC &kp LC(RIGHT) &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT >;
