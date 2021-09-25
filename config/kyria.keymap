@@ -81,7 +81,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &to WALPHA
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp A >;
 		};
 
 		alpha_win {
@@ -92,7 +92,7 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &to MALPHA
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp A >;
 		};
 
 		// MATH
@@ -116,7 +116,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;			
-			sensor-bindings = <&none &none >;
+			sensor-bindings = <&none &inc_dec_kp A >;
 		};
 
 		math_win {
@@ -127,7 +127,7 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &none
 			>;			
-			sensor-bindings = <&none &none >;
+			sensor-bindings = <&none &inc_dec_kp A >;
 		};
 
 		// SYM
@@ -151,7 +151,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;
-			sensor-bindings = <&inc_dec_kp LS(LG(Z)) LG(Z) &none >;
+			sensor-bindings = <&inc_dec_kp LS(LG(Z)) LG(Z) &inc_dec_kp A >;
 		};
 
 		symbol_win {
@@ -162,7 +162,7 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET &ld WMATH ESC &none &none
 			>;
-			sensor-bindings = <&inc_dec_kp LS(LS(Z)) LS(Z) &none >;
+			sensor-bindings = <&inc_dec_kp LS(LS(Z)) LS(Z) &inc_dec_kp A >;
 		};
 
 		// NAV
@@ -186,7 +186,7 @@
 					&kp LA(LS(K_PWR)) &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &bt BT_CLR
 			>;
-			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &none >;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp A >;
 		};
 
 		nav_win {
@@ -197,7 +197,7 @@
 					&kp LWIN(L) &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &bt BT_CLR
 			>;
-			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &none >;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp A >;
 		};
 
 	};
