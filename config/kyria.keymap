@@ -60,7 +60,6 @@
 	keymap {
 		compatible = "zmk,keymap";
 
-
 		// ALPHA
 		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
 		// │       │   Q   │   W   │   F   │   P   │   B   │                                       │   J   │   L   │   U   │   Y   │  MENU │       │
@@ -82,7 +81,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &to WALPHA
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
 		};
 
 		alpha_win {
@@ -93,7 +92,7 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &to MALPHA
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &none >;
 		};
 
 		// MATH
@@ -117,7 +116,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;			
-			sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none >;
+			sensor-bindings = <&none &none >;
 		};
 
 		math_win {
@@ -128,10 +127,8 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &none
 			>;			
-			sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none >;
+			sensor-bindings = <&none &none >;
 		};
-
-
 
 		// SYM
 		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
@@ -154,7 +151,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;
-			sensor-bindings = <&inc_dec_kp LS(LG(SE_Z)) LG(SE_Z) &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp LS(LG(SE_Z)) LG(SE_Z) &none >;
 		};
 
 		symbol_win {
@@ -165,9 +162,8 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET &ld WMATH ESC &none &none
 			>;
-			sensor-bindings = <&inc_dec_kp LS(LS(SE_Z)) LS(SE_Z) &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp LS(LS(SE_Z)) LS(SE_Z) &none >;
 		};
-
 
 		// NAV
 		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
@@ -176,7 +172,7 @@
 		// │       │  CTRL │  ALT  │ SHIFT │  CMD  │       │                                       │       │       │       │       │       │       │
 		// │       │   F5  │   F6  │   F7  │   F8  │       │                                       │  HOME │   ←   │   ↓   │   →   │  PGUP │       │
 		// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
-		// │       │   F1  │   F2  │   F3  │   F4  │       │       │       │       │       │       │  END  │  PREV │ PL/PS │  NEXT │  PGDN │       │
+		// │       │   F1  │   F2  │   F3  │   F4  │       │       │ BTPRV │       │ BTNXT │       │  END  │  PREV │ PL/PS │  NEXT │  PGDN │       │
 		// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
 		//                         │  BRI  │       │  NAV  │  SYM  │  MATH │       │  MATH │  SYM  │  NAV  │       │ RESET │
 		//                         │  LOCK │       │  TAB  │ SPACE │  BSPC │       │  DEL  │ ENTER │  ESC  │       │  BLT  │
@@ -184,24 +180,24 @@
 
 		nav_mac {
 			bindings = <
-				&none &kp       F9 &kp     F10 &kp      F11 &kp     F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
-				&none &mt LCTRL F5 &mt LALT F6 &mt LSHFT F7 &hm LCMD F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
-				&none &kp       F1 &kp      F2 &kp       F3 &kp      F4 &none  &none &none     &none &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
+				&none &kp       F9 &kp     F10 &kp      F11 &kp     F12 &none                                        &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
+				&none &mt LCTRL F5 &mt LALT F6 &mt LSHFT F7 &hm LCMD F8 &none                                        &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
+				&none &kp       F1 &kp      F2 &kp       F3 &kp      F4 &none  &none &bt BT_PRV     &bt BT_NXT &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
-					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &bt BT_CLR
 			>;
-			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &none >;
 		};
 
 		nav_win {
 			bindings = <
-				&none &kp      F9 &kp     F10 &kp      F11 &kp      F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
-				&none &mt LWIN F5 &mt LALT F6 &mt LSHFT F7 &hm LCTRL F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
-				&none &kp      F1 &kp      F2 &kp       F3 &kp       F4 &none  &none &none     &none &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
-					&none &none &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
-					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &none &none
+				&none &kp      F9 &kp     F10 &kp      F11 &kp      F12 &none                                        &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
+				&none &mt LWIN F5 &mt LALT F6 &mt LSHFT F7 &hm LCTRL F8 &none                                        &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
+				&none &kp      F1 &kp      F2 &kp       F3 &kp       F4 &none  &none &bt BT_PRV     &bt BT_NXT &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
+					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
+					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &bt BT_CLR
 			>;
-			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp none none >;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &none >;
 		};
 
 	};
