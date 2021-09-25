@@ -194,7 +194,7 @@
 				&none &kp      F9 &kp     F10 &kp      F11 &kp      F12 &none                                        &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
 				&none &mt LWIN F5 &mt LALT F6 &mt LSHFT F7 &hm LCTRL F8 &none                                        &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
 				&none &kp      F1 &kp      F2 &kp       F3 &kp       F4 &none  &none &bt BT_PRV     &bt BT_NXT &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
-					&LWIN(L) &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
+					&kp LWIN(L) &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &bt BT_CLR
 			>;
 			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &none >;
