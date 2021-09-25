@@ -30,13 +30,15 @@
 /*;*/
 #define SE_SEMI LS(COMMA)
 
-/* SLASHES AND BRACKETS */
+/* SLASHES AND BRACKETS */  
 /*/*/
 #define SE_SLSH LS(SE_7)
 /*(backslash)*/
 #define SE_BSLS LA(LS(SE_7))
+#define WSE_BSLS RA(SE_PLUS)
 /*|*/
 #define SE_PIPE LA(SE_7)
+#define WSE_PIPE RA(SE_LABK)
 /*(*/
 #define SE_LPRN LS(SE_8)
 /*)*/
@@ -47,8 +49,10 @@
 #define SE_RBKT RA(SE_9)
 /*{*/
 #define SE_LBRC LA(LS(SE_8))
+#define WSE_LBRC RA(SE_7)
 /*}*/
 #define SE_RBRC LA(LS(SE_9))
+#define WSE_RBRC RA(SE_0)
 /*<*/
 #define SE_LABK GRAVE
 #define SE_LT SE_LABK
@@ -85,6 +89,8 @@
 #define SE_TILD RA(RBKT)
 /*µ*/
 #define SE_MICR RA(M)
+/*§*/
+#define SE_SECT KC_GRV
 
 /* QUOTES AND ACCENTS */
 /*'*/

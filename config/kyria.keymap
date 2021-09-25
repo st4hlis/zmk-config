@@ -9,11 +9,18 @@
 #include "keymap-swedish.h"
 #include <dt-bindings/zmk/bt.h>
 
-#define ALPHA 0
-#define MATH  1
-#define SYM   2
-#define NAV   3 
-// #define GAME  4
+#define MALPHA 0
+#define WALPHA 1
+
+#define MMATH  2
+#define WMATH  3
+
+#define MSYM   4
+#define WSYM   5
+
+#define MNAV   6 
+#define WNAV   7 
+
 
 #define LL(layer) &ll layer layer
 
@@ -54,116 +61,178 @@
 		compatible = "zmk,keymap";
 
 
-		alpha_layer {
+		// ALPHA
+		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
+		// │       │   Q   │   W   │   F   │   P   │   B   │                                       │   J   │   L   │   U   │   Y   │  MENU │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┤                                       ├───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │  CTRL │  ALT  │ SHIFT │  CMD  │       │                                       │       │  CMD  │ SHIFT │  ALT  │  CTRL │       │
+		// │       │   A   │   R   │   S   │   T   │   G   │                                       │   M   │   N   │   E   │   I   │   O   │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │   Z   │   X   │   C   │   D   │   V   │  CAPS │       │       │       │  INS  │   K   │   H   │   Å   │  Ä/Ø  │  Ö/Æ  │       │
+		// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
+		//                         │  VOL  │       │  NAV  │  SYM  │  MATH │       │  MATH │  SYM  │  NAV  │       │  WIN  │
+		//                         │ PL/PS │ LDESK │  TAB  │ SPACE │  BSPC │       │  DEL  │ ENTER │  ESC  │ RDESK │  MAC  │
+		//                         └───────┴───────┴───────┴───────┴───────┘       └───────┴───────┴───────┴───────┴───────┘
 
-// --------------------------------------------                             ----------------------------------------------
-// | MATH |  Q   |  W  |  F    |   P   |  B   |                             |  J   |   L   |   U   |  Y  | SSHIFT | MATH |
-// --------------------------------------------                             ----------------------------------------------
-// |      | CTRL | ALT | SHIFT |  CMD  |      |                             |      |  CMD  | SHIFT | ALT |  CTRL  |      |
-// | SYM  |  A   |  R  |   S   |   T   |  G   |                             |  M   |   N   |   E   |  I  |   O    | SYM  |
-// ----------------------------------------------------------  -----------------------------------------------------------
-// | NAV  |  Z   |  X  |   C   |   D   |  V   | CAPS | BTCL |  | BTCL | INS |  K   |   H   |   Å   |  Ä  |   Ö    | NAV  |
-// ----------------------------------------------------------  -----------------------------------------------------------
-// [Hold]              |       |       | MATH | SYM  | NAV  |  | NAV  | SYM | MATH |       |       |
-// [Tap]    LEFT/RIGHT |       | LDESK | TAB  | SPAC | BSPC |  | DEL  | RET | ESC  | RDESK |       |
-//                     --------------------------------------  -------------------------------------
-
+		alpha_mac {
 			bindings = <
-	LL(MATH) &kp Q       &kp W      &kp F       &kp P      &kp B                                     &kp J &kp L      &kp U       &kp Y      &sk RSHFT   LL(MATH)
-	LL(SYM)  &hm LCTRL A &hm LALT R &hm LSHFT S &hm LCMD T &kp G                                     &kp M &hm RCMD N &hm RSHFT E &hm RALT I &hm RCTRL O LL(SYM)
-	LL(NAV)  &kp Z       &kp X      &kp C       &kp D      &kp V &kp CAPS &bt BT_CLR    &bt BT_CLR &kp INS &kp K &kp H      &kp SE_AA   &kp SE_AE  &kp SE_OE   LL(NAV)
-
-	                     &none &kp LC(LEFT) &ld MATH TAB &ld SYM SPACE &ld NAV BSPC    &ld NAV DEL &ld SYM RET  &ld MATH ESC &kp LC(RIGHT) &none
+				&none  &kp Q       &kp W      &kp F       &kp P      &kp B                                     &kp J &kp L      &kp U       &kp Y      &kp LG(SPACE) &none
+				&none  &hm LCTRL A &hm LALT R &hm LSHFT S &hm LCMD T &kp G                                     &kp M &hm RCMD N &hm RSHFT E &hm RALT I &hm RCTRL O   &none
+				&none  &kp Z       &kp X      &kp C       &kp D      &kp V &kp CAPS &none        &none &kp INS &kp K &kp H      &kp SE_AA   &kp SE_AE  &kp SE_OE     &none
+					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &to WALPHA
 			>;
-
-			sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp none none >;
 		};
-			// sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
 
-
-		math_layer {
-
-// ----------------------------------------                          ----------------------------------------
-// |     |  $   |  =  |   <   |  >  |     |                          |     |  7  |   8   |  9  |      |     |
-// ----------------------------------------                          ----------------------------------------
-// |     | CTRL | ALT | SHIFT | CMD |     |                          |     | CMD | SHIFT | ALT | CTRL |     |
-// |     |  +   |  -  |   ,   |  .  |     |                          |     |  4  |   5   |  6  |  0   |     |
-// ----------------------------------------------------  ----------------------------------------------------
-// |     |  %   |  /  |   ^   |  *  |     |     |     |  |     |     |     |  1  |   2   |  3  |      |     |
-// ----------------------------------------------------  ----------------------------------------------------
-//         BRIGHTNESS | SLEEP |     |     |     |     |  |     |     |     |     |       | HORIZONTAL SCROLL 
-//                    ---------------------------------  ---------------------------------
-
+		alpha_win {
 			bindings = <
-	&none &kp SE_DLR        &kp SE_EQL       &kp SE_LT          &kp SE_GT       &none                               &none  &kp N7 &kp N8 &kp N9 &none  &none
-	&none &hm LCTRL SE_PLUS &hm LALT SE_MINS &hm LSHFT SE_COMMA &hm LCMD SE_DOT &none                               &none  &kp N4 &kp N5 &kp N6 &kp N0 &none
-	&none &kp SE_PERC       &kp SE_SLSH      &kp SE_CIRC        &kp SE_ASTR     &none  &trans &trans  &trans &trans &none  &kp N1 &kp N2 &kp N3 &none  &none
-                                           &none              &trans          &trans &trans &trans  &trans &trans &trans &trans &none 
+				&none  &kp Q      &kp W      &kp F       &kp P       &kp B                                     &kp J &kp L       &kp U       &kp Y      &kp LG(SPACE) &none
+				&none  &hm LWIN A &hm LALT R &hm LSHFT S &hm LCTRL T &kp G                                     &kp M &hm RCTRL N &hm RSHFT E &hm RALT I &hm RWIN O    &none
+				&none  &kp Z      &kp X      &kp C       &kp D       &kp V &kp CAPS &none        &none &kp INS &kp K &kp H       &kp SE_AA   &kp SE_AE  &kp SE_OE     &none
+					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
+					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &to MALPHA
 			>;
-
-			
-			sensor-bindings = <&inc_dec_kp LS(LC(TAB)) LC(TAB) &inc_dec_kp LS(LC(TAB)) LC(TAB) >;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp none none >;
 		};
-			// sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
 
+		// MATH
+		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
+		// │       │   ^   │   =   │   <   │   >   │       │                                       │       │   7   │   8   │   9   │       │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┤                                       ├───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │  CTRL │  ALT  │ SHIFT │  CMD  │       │                                       │       │       │       │       │       │       │
+		// │       │   /   │   *   │   ,   │   .   │       │                                       │       │   4   │   5   │   6   │   0   │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │   $   │   %   │   -   │   +   │       │       │       │       │       │       │       │   1   │   2   │   3   │       │       │
+		// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
+		//                         │       │       │  NAV  │  SYM  │  MATH │       │  MATH │  SYM  │  NAV  │       │       │
+		//                         │       │       │  TAB  │ SPACE │  BSPC │       │  DEL  │ ENTER │  ESC  │       │       │
+		//                         └───────┴───────┴───────┴───────┴───────┘       └───────┴───────┴───────┴───────┴───────┘
 
-		symbol_layer { 
-                                                                                   
-// -------------------------------------                          -------------------------------------
-// |     |  #  |  =  |  ?  |  !  |     |                          |     |  {  |  }  |  \  |  ~  |     |
-// -------------------------------------                          -------------------------------------
-// |     |  @  |  _  |  ,  |  .  |     |                          |     |  (  |  )  |  '  |  "  |     | 
-// -------------------------------------------------  -------------------------------------------------
-// |     |  &  |  |  |  ;  |  :  |     |     |     |  |     |     |     |  [  |  ]  |  `  |  ´  |     |
-// -------------------------------------------------  -------------------------------------------------
-//             SCRUB |     |     |     |     |     |  |     |     |     |     |     | 	
-//                   -------------------------------  -------------------------------
-
+		math_mac {
 			bindings = <
-	&to ALPHA &kp SE_HASH &kp SE_EQL  &kp SE_QUES  &kp SE_EXLM  &none                                 &none  &kp SE_LBRC &kp SE_RBRC &kp SE_BSLS &kp SE_TILD &to ALPHA
-	&to ALPHA &kp SE_AT   &kp SE_UNDS &kp SE_COMMA &kp SE_DOT   &none                                 &none  &kp SE_LPRN &kp SE_RPRN &kp SE_QUOT &kp SE_DQUO &to ALPHA
-	&to ALPHA &kp SE_AMPR &kp SE_PIPE &kp SE_SEMI  &kp SE_COLON &none  &trans &trans    &trans &trans &none  &kp SE_LBKT &kp SE_RBKT &kp SE_GRV  &kp SE_ACUT &to ALPHA
-                                    &none        &trans       &trans &trans &trans    &trans &trans &trans &trans      &none
-			>;
+				&none &kp SE_CIRC       &kp SE_EQL       &kp SE_LT          &kp SE_GT       &none                             &none  &kp N7 &kp N8 &kp N9 &none  &none
+				&none &hm LCTRL SE_SLSH &hm LALT SE_ASTR &hm LSHFT SE_COMMA &hm LCMD SE_DOT &none                             &none  &kp N4 &kp N5 &kp N6 &kp N0 &none
+				&none &kp SE_DLR        &kp SE_PERC      &kp SE_MINS        &kp SE_PLUS     &none  &none &none    &none &none &none  &kp N1 &kp N2 &kp N3 &none  &none
+					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
+			>;			
+			sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none >;
+		};
 
-			sensor-bindings = <&inc_dec_kp LG(Z) LS(LG(Z)) &inc_dec_kp LS(LC(TAB)) LC(TAB)>;
+		math_win {
+			bindings = <
+				&none &kp SE_CIRC      &kp SE_EQL       &kp SE_LT          &kp SE_GT        &none                           &none  &kp N7 &kp N8 &kp N9 &none  &none
+				&none &hm LWIN SE_SLSH &hm LALT SE_ASTR &hm LSHFT SE_COMMA &hm LCTRL SE_DOT &none                           &none  &kp N4 &kp N5 &kp N6 &kp N0 &none
+				&none &kp SE_DLR       &kp SE_PERC      &kp SE_MINS        &kp SE_PLUS      &none  &none &none  &none &none &none  &kp N1 &kp N2 &kp N3 &none  &none
+					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
+					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &none
+			>;			
+			sensor-bindings = <&inc_dec_kp none none &inc_dec_kp none none >;
 		};
 
 
-		navmed_layer {
 
-// -------------------------------------------                          ------------------------------------------
-// |      |  F9  |  F10 |  F11  | F12 |      |                          |      | PREV | PLAY | NEXT |      |     |
-// -------------------------------------------                          ------------------------------------------
-// |      | CTRL | OPT  | SHIFT | CMD |      |                          |      |      |      |      |      |     |
-// |      |  F5  |  F6  |  F7   | F8  |      |                          | HOME | LEFT |  UP  | RGHT | PGUP |     |
-// -------------------------------------------------------  ------------------------------------------------------
-// |      |  F1  |  F2  |  F3   | F4  |      |     |     |  |     |     | END  | LTAB | DOWN | RTAB | PGDN |     |
-// -------------------------------------------------------  ------------------------------------------------------
-//                  VOL | MUTE  |     |      |     |     |  |     |     |      |      |      | 
-//                      ----------------------------------  ----------------------------------
+		// SYM
+		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
+		// │       │   §   │   =   │   #   │   @   │       │                                       │       │   {   │   }   │   ¨   │   ~   │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┤                                       ├───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │       │       │       │       │       │                                       │       │       │       │       │       │       │
+		// │       │   \   │   _   │   ?   │   !   │       │                                       │       │   (   │   )   │   '   │   "   │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │   |   │   &   │   ;   │   :   │       │       │       │       │       │       │       │   [   │   ]   │   ´   │   `   │       │
+		// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
+		//                         │ SCRUB │       │  NAV  │  SYM  │  MATH │       │  MATH │  SYM  │  NAV  │       │       │
+		//                         │       │       │  TAB  │ SPACE │  BSPC │       │  DEL  │ ENTER │  ESC  │       │       │
+		//                         └───────┴───────┴───────┴───────┴───────┘       └───────┴───────┴───────┴───────┴───────┘
+
+		symbol_mac {
 			bindings = <
-	&to ALPHA &kp       F9 &kp     F10 &kp      F11 &kp     F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &to ALPHA
-	&to ALPHA &mt LCTRL F5 &mt LALT F6 &mt LSHFT F7 &hm LCMD F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &to ALPHA
-	&to ALPHA &kp       F1 &kp      F2 &kp       F3 &kp      F4 &none  &trans &trans     &trans &trans &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &to ALPHA
-											               &kp C_MUTE   &trans      &trans &trans &trans     &trans &trans &trans    &trans          &none
+				&none &kp SE_SECT &kp SE_EQL  &kp SE_HASH &kp SE_AT    &none                                 &none  &kp SE_LBRC &kp SE_RBRC &kp SE_DIAE &kp SE_TILD &none
+				&none &kp SE_BSLS &kp SE_UNDS &kp SE_QUES &kp SE_EXLM  &none                                 &none  &kp SE_LPRN &kp SE_RPRN &kp SE_QUOT &kp SE_DQUO &none
+				&none &kp SE_PIPE &kp SE_AMPR &kp SE_SEMI &kp SE_COLON &none  &none &none    &none &none &none  &kp SE_LBKT &kp SE_RBKT &kp SE_ACUT &kp SE_GRV  &none
+					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;
+			sensor-bindings = <&inc_dec_kp LS(LG(SE_Z)) LG(SE_Z) &inc_dec_kp none none >;
+		};
 
-				sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
-				//sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
-			};
+		symbol_win {
+			bindings = <
+				&none &kp SE_SECT  &kp SE_EQL  &kp SE_HASH &kp SE_AT    &none                             &none  &kp WSE_LBRC &kp WSE_RBRC &kp SE_DIAE &kp SE_TILD &none
+				&none &kp WSE_BSLS &kp SE_UNDS &kp SE_QUES &kp SE_EXLM  &none                             &none  &kp SE_LPRN  &kp SE_RPRN  &kp SE_QUOT &kp SE_DQUO &none
+				&none &kp WSE_PIPE &kp SE_AMPR &kp SE_SEMI &kp SE_COLON &none  &none &none    &none &none &none  &kp SE_LBKT  &kp SE_RBKT  &kp SE_ACUT &kp SE_GRV  &none
+					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
+					&ld WNAV DEL &ld WSYM RET &ld WMATH ESC &none &none
+			>;
+			sensor-bindings = <&inc_dec_kp LS(LS(SE_Z)) LS(SE_Z) &inc_dec_kp none none >;
+		};
+
+
+		// NAV
+		// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
+		// │       │   F9  │  F10  │  F11  │  F12  │       │                                       │       │  LTAB │   ↑   │  RTAB │       │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┤                                       ├───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │  CTRL │  ALT  │ SHIFT │  CMD  │       │                                       │       │       │       │       │       │       │
+		// │       │   F5  │   F6  │   F7  │   F8  │       │                                       │  HOME │   ←   │   ↓   │   →   │  PGUP │       │
+		// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+		// │       │   F1  │   F2  │   F3  │   F4  │       │       │       │       │       │       │  END  │  PREV │ PL/PS │  NEXT │  PGDN │       │
+		// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
+		//                         │  BRI  │       │  NAV  │  SYM  │  MATH │       │  MATH │  SYM  │  NAV  │       │ RESET │
+		//                         │  LOCK │       │  TAB  │ SPACE │  BSPC │       │  DEL  │ ENTER │  ESC  │       │  BLT  │
+		//                         └───────┴───────┴───────┴───────┴───────┘       └───────┴───────┴───────┴───────┴───────┘
+
+		nav_mac {
+			bindings = <
+				&none &kp       F9 &kp     F10 &kp      F11 &kp     F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
+				&none &mt LCTRL F5 &mt LALT F6 &mt LSHFT F7 &hm LCMD F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
+				&none &kp       F1 &kp      F2 &kp       F3 &kp      F4 &none  &none &none     &none &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
+					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
+			>;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp none none >;
+		};
+
+		nav_win {
+			bindings = <
+				&none &kp      F9 &kp     F10 &kp      F11 &kp      F12 &none                                  &none     &kp C_PREV      &kp C_PP   &kp C_NEXT  &none     &none
+				&none &mt LWIN F5 &mt LALT F6 &mt LSHFT F7 &hm LCTRL F8 &none                                  &kp HOME  &kp LEFT        &kp UP     &kp RIGHT   &kp PG_UP &none
+				&none &kp      F1 &kp      F2 &kp       F3 &kp       F4 &none  &none &none     &none &none &kp END   &kp LC(LS(TAB)) &kp DOWN   &kp LC(TAB) &kp PG_DN &none
+					&none &none &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
+					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &none &none
+			>;
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp none none >;
+		};
+
+	};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //	=== Gaming ===
 //		gaming_layer {
 // -------------------------------------------                                          ----------------------------------------------
-// |    |   1    |  2   |  3   |  4   |  5   |                                          |       |      |      |      |       |       |
+// │    │   1    │  2   │  3   │  4   │  5   │                                          │       │      │      │      │       │       │
 // -------------------------------------------                                          ----------------------------------------------
-// | H  | SHIFT  |  A   |  W   |  D   |  Q   |                                          |       |      |      |      |       |       |
+// │ H  │ SHIFT  │  A   │  W   │  D   │  Q   │                                          │       │      │      │      │       │       │
 // ---------------------------------------------------------------  ------------------------------------------------------------------
-// | X  | CTRL/C |  Q   |  S   |  R   |  G   |   ESC   |    B    |  |         |         |       |      |      |      |       |       |
+// │ X  │ CTRL/C │  Q   │  S   │  R   │  G   │   ESC   │    B    │  │         │         │       │      │      │      │       │       │
 // ---------------------------------------------------------------  ------------------------------------------------------------------
-//                      |      |      |  F   |  SPACE  |    E    |  |         |         |       |      |      | UNFINISHED!
+//                      │      │      │  F   │  SPACE  │    E    │  │         │         │       │      │      │ UNFINISHED!
 //                      ------------------------------------------  -------------------------------------------
 //			bindings = <
 //	&kp C_MUTE &none  &kp C_PREV &kp C_PP  &kp C_NECT &none                                          &none &none &none &none &none &none
@@ -176,5 +245,17 @@
 
 //			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp LG(Z) LA(LG(Z))>;
 //		};
-	};
-};
+
+
+// TEMPLATE
+// ┌───────┬───────┬───────┬───────┬───────┬───────┐                                       ┌───────┬───────┬───────┬───────┬───────┬───────┐
+// │       │       │       │       │       │       │                                       │       │       │       │       │       │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┤                                       ├───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │       │       │       │       │       │                                       │       │       │       │       │       │       │
+// │       │       │       │       │       │       │                                       │       │       │       │       │       │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐       ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │       │       │       │       │       │       │       │       │       │       │       │       │       │       │       │       │
+// └───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤       ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
+//                         │       │       │       │       │       │       │       │       │       │       │       │
+//                         │       │       │       │       │       │       │       │       │       │       │       │
+//                         └───────┴───────┴───────┴───────┴───────┘       └───────┴───────┴───────┴───────┴───────┘
