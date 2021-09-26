@@ -116,7 +116,7 @@
 					&none &kp LC(LEFT) &ld MMATH TAB &ld MSYM SPACE &ld MNAV BSPC    
 					&ld MNAV DEL &ld MSYM RET  &ld MMATH ESC &kp LC(RIGHT) &none
 			>;			
-			// sensor-bindings = < &inc_dec_kp A A &inc_dec_kp A A>;
+			sensor-bindings = < &inc_dec_kp A A &inc_dec_kp A A>;
 		};
 
 		math_win {
@@ -127,7 +127,7 @@
 					&none &none &ld WMATH TAB &ld WSYM SPACE &ld WNAV BSPC    
 					&ld WNAV DEL &ld WSYM RET  &ld WMATH ESC &none &none
 			>;			
-			// sensor-bindings = < &inc_dec_kp A A &inc_dec_kp A A>;
+			sensor-bindings = < &inc_dec_kp A A &inc_dec_kp A A>;
 		};
 
 		// SYM
